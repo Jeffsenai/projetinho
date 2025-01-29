@@ -1,13 +1,22 @@
-// Contador regressivo
+// reloginho
 const horas = document.getElementById('horas');
 const minutos = document.getElementById('minutos');
 const segundos = document.getElementById('segundos');
 
+
+const dataFutura = new Date(new Date().getTime() + 48 * 60 * 60 * 1000);
+
 const tempoRestante = () => {
     const dataAtual = new Date();
-    const dataFutura = new Date(dataAtual.getTime() + 48 * 60 * 60 * 1000); // 48 horas no futuro
-
     const totalSegundos = (dataFutura - dataAtual) / 1000;
+
+    
+    if (totalSegundos <= 0) {
+        horas.textContent = '00';
+        minutos.textContent = '00';
+        segundos.textContent = '00';
+        return;
+    }
 
     const horasRestantes = Math.floor(totalSegundos / 3600) % 24;
     const minutosRestantes = Math.floor(totalSegundos / 60) % 60;
@@ -22,9 +31,14 @@ const formatarTempo = (tempo) => {
     return tempo < 10 ? `0${tempo}` : tempo;
 };
 
+
 setInterval(tempoRestante, 1000);
 
-// FAQ Interativo
+
+tempoRestante();
+
+
+// abrir quando clica nas perguntas frequentes
 const faqCards = document.querySelectorAll('.faq-card');
 
 faqCards.forEach((card) => {
@@ -32,6 +46,8 @@ faqCards.forEach((card) => {
         card.classList.toggle('ativo');
     });
 });
+
+
 
 // Animação de scroll
 const sections = document.querySelectorAll('section');
