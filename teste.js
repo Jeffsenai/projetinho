@@ -39,6 +39,7 @@ tempoRestante();
 
 
 // abrir quando clica nas perguntas frequentes
+
 const faqCards = document.querySelectorAll('.faq-card');
 
 faqCards.forEach((card) => {
