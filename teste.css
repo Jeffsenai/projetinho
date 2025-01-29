@@ -1,0 +1,265 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #000;
+    color: #fff;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Horizon', sans-serif;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Seção do Vídeo */
+#video {
+    padding: 60px 0;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70%;
+    height: 70%;
+    margin-left: 200px;
+    border-radius: 10px;
+}
+
+/* Seção de Promoção */
+#promocao {
+    background: linear-gradient(135deg, #333, #000);
+    padding: 100px 0;
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+#promocao h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.promocao-info {
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+    animation: slideIn 1.5s ease-in-out;
+}
+
+.desconto {
+    color: #00bf63;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.preco-antigo {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.preco-atual {
+    font-size: 2rem;
+    color: #00bf63;
+    margin: 10px 0;
+}
+
+.preco-vista {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.ultimas-horas {
+    color: #00bf63;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.contador {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #00bf63;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.btn:hover {
+    background-color: #00994d;
+}
+
+/* Seção de Benefícios */
+#beneficios {
+    padding: 60px 0;
+}
+
+.beneficios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.beneficio {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.beneficio:hover {
+    transform: translateY(-10px);
+}
+
+.beneficio i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #00bf63;
+}
+
+/* Seção de Depoimentos */
+#depoimentos {
+    padding: 60px 0;
+}
+
+.depoimentos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.depoimento {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    border-radius: 10px;
+}
+
+.depoimento img {
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* Seção de Perguntas Frequentes */
+#perguntas-frequentes {
+    padding: 60px 0;
+}
+
+.faq-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.faq-card {
+    background: #111;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-pergunta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.faq-pergunta h3 {
+    font-size: 1.2rem;
+}
+
+.faq-pergunta i {
+    transition: transform 0.3s ease;
+}
+
+.faq-resposta {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.5s ease;
+    padding: 0 15px;
+}
+
+.faq-card.ativo .faq-resposta {
+    max-height: 200px;
+    padding: 15px;
+}
+
+.faq-card.ativo .faq-pergunta i {
+    transform: rotate(180deg);
+}
+
+/* Seção de Garantia */
+#garantia {
+    padding: 60px 0;
+    text-align: center;
+    background: #111;
+}
+
+/* Seção de Sobre o Autor */
+#sobre-autor {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.autor-info img {
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* Seção de Call to Action */
+#cta {
+    padding: 60px 0;
+    text-align: center;
+    background: linear-gradient(135deg, #333, #000);
+}
+
+/* Rodapé */
+footer {
+    background: #111;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
