@@ -67,3 +67,48 @@ const animacaoScroll = () => {
 
 window.addEventListener('scroll', animacaoScroll);
 animacaoScroll();
+
+
+
+
+
+// Cronômetro da faixa superior
+const cronometroHoras = document.getElementById('cronometro-horas');
+const cronometroMinutos = document.getElementById('cronometro-minutos');
+const cronometroSegundos = document.getElementById('cronometro-segundos');
+
+// Define a data futura (48 horas a partir de agora)
+const dataFuturaCronometro = new Date();
+dataFuturaCronometro.setHours(dataFuturaCronometro.getHours() + 48);
+
+const atualizarCronometro = () => {
+    const dataAtual = new Date();
+    const diferenca = dataFuturaCronometro - dataAtual; // Diferença em milissegundos
+
+    // Verifica se o tempo acabou
+    if (diferenca <= 0) {
+        cronometroHoras.textContent = '00';
+        cronometroMinutos.textContent = '00';
+        cronometroSegundos.textContent = '00';
+        return;
+    }
+
+    // Converte a diferença para horas, minutos e segundos
+    const horasRestantes = Math.floor(diferenca / (2000 * 60 * 60));
+    const minutosRestantes = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+    const segundosRestantes = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+    // Atualiza o cronômetro
+    cronometroHoras.textContent = formatarTempo2(horasRestantes);
+    cronometroMinutos.textContent = formatarTempo2(minutosRestantes);
+    cronometroSegundos.textContent = formatarTempo2(segundosRestantes);
+};
+
+// Formata o tempo para sempre ter dois dígitos
+const formatarTempo2 = (tempo) => {
+    return tempo < 10 ? `0${tempo}` : tempo;
+};
+
+// Inicia o cronômetro
+const intervalo = setInterval(atualizarCronometro, 1000);
+atualizarCronometro(); // Chama a função imediatamente para evitar atraso inicial
